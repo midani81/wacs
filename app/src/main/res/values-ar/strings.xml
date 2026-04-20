@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حافظ أرقام واتساب</string>
+    <string name="accessibility_service_label">حافظ أرقام واتساب</string>
+    <string name="accessibility_service_description">يراقب قائمة محادثات واتساب ويكتشف الأرقام غير المحفوظة تلقائياً</string>
+    
+    <string name="service_running">الخدمة تعمل ✓</string>
+    <string name="service_stopped">الخدمة متوقفة ✗</string>
+    <string name="enable_service">تفعيل الخدمة</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="refresh">تحديث</string>
+    
+    <string name="pending_count">أرقام بانتظار المراجعة: %d</string>
+    <string name="empty_state">لا توجد أرقام جديدة\nافتح واتساب وتصفح قائمة المحادثات</string>
+    
+    <string name="save">حفظ</string>
+    <string name="ignore">تجاهل</string>
+    <string name="save_contact">حفظ جهة اتصال</string>
+    <string name="contact_name_hint">اسم الجهة</string>
+    <string name="contact_saved">تم حفظ الجهة ✓</string>
+    <string name="contact_save_failed">فشل الحفظ. تأكد من منح صلاحية جهات الاتصال</string>
+    
+    <string name="accessibility_guide_title">تفعيل خدمة إمكانية الوصول</string>
+    <string name="accessibility_guide_message">للمتابعة:\n\n1. اضغط متابعة\n2. ابحث عن \"حافظ أرقام واتساب\"\n3. فعّل الخدمة\n4. اقبل الأذونات\n\nملاحظة: التطبيق يقرأ فقط نصوص قائمة محادثات واتساب، ولا يرسل أي بيانات لأي خادم خارجي.</string>
+    <string name="continue_to_settings">متابعة</string>
+</resources>

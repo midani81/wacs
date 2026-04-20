@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhatsApp Contact Saver</string>
+    <string name="accessibility_service_label">WhatsApp Contact Saver</string>
+    <string name="accessibility_service_description">Monitors WhatsApp chat list and detects unsaved phone numbers automatically</string>
+    
+    <string name="service_running">Service is running ✓</string>
+    <string name="service_stopped">Service is stopped ✗</string>
+    <string name="enable_service">Enable Service</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="refresh">Refresh</string>
+    
+    <string name="pending_count">Pending numbers: %d</string>
+    <string name="empty_state">No new numbers yet\nOpen WhatsApp and browse your chat list</string>
+    
+    <string name="save">Save</string>
+    <string name="ignore">Ignore</string>
+    <string name="save_contact">Save Contact</string>
+    <string name="contact_name_hint">Contact name</string>
+    <string name="contact_saved">Contact saved ✓</string>
+    <string name="contact_save_failed">Save failed. Make sure contacts permission is granted</string>
+    
+    <string name="accessibility_guide_title">Enable Accessibility Service</string>
+    <string name="accessibility_guide_message">To continue:\n\n1. Tap Continue\n2. Find "WhatsApp Contact Saver"\n3. Enable the service\n4. Accept the permissions\n\nNote: The app only reads text from the WhatsApp chat list and does not send any data to external servers.</string>
+    <string name="continue_to_settings">Continue</string>
+</resources>

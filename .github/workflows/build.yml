@@ -1,0 +1,74 @@
+name: Build WACS APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+    
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Generate Gradle Wrapper
+      run: |
+        if [ ! -f gradle/wrapper/gradle-wrapper.jar ] || [ ! -s gradle/wrapper/gradle-wrapper.jar ]; then
+          echo "Generating gradle wrapper..."
+          gradle wrapper --gradle-version 8.4
+        fi
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --stacktrace
+    
+    - name: Build Release APK (unsigned)
+      run: ./gradlew assembleRelease --stacktrace
+      continue-on-error: true
+    
+    - name: Rename APK files
+      run: |
+        mkdir -p output
+        find app/build/outputs/apk -name "*.apk" -exec cp {} output/ \;
+        cd output && ls -la
+    
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: wacs-debug-apk
+        path: app/build/outputs/apk/debug/*.apk
+        retention-days: 30
+    
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: wacs-release-apk
+        path: app/build/outputs/apk/release/*.apk
+        retention-days: 30
+        if-no-files-found: ignore
+    
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: output/*.apk
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
